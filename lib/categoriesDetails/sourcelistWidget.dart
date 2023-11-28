@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_application/model/tabWidget.dart';
-import 'package:news_application/newsListwidget.dart';
+import 'package:news_application/news/newsListwidget.dart';
 
 import '../API/sourcesResponse/Source.dart';
 
