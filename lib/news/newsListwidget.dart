@@ -31,17 +31,17 @@ class _newsListWidgetState extends State<newsListWidget> {
           if (viewNewsModel.showLoading == true) {
             return const Center(child: CircularProgressIndicator());
           } else if (viewNewModel.errorMessage != null) {
-            return Center(
-              child: Column(
-                children: [
-                  Text(viewNewModel.errorMessage ?? ""),
-                  ElevatedButton(
+            return Column(
+              children: [
+                Expanded(child: Text("Something Went Wrong !")),
+                Expanded(
+                  child: ElevatedButton(
                       onPressed: () {
                         viewNewsModel.getNews(widget.source.id??"");
                       },
-                      child: const Text("Try Again"))
-                ],
-              ),
+                      child: const Text("Try Again")),
+                )
+              ],
             );
           }
           var newsList = viewNewsModel.newsList;

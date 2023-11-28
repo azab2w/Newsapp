@@ -29,17 +29,29 @@ class _CategoriesDetailsState extends State<CategoriesDetails> {
           if (viewModel.showLoading == true) {
             return Center(child: CircularProgressIndicator());
           } else if (viewModel.errormessage != null) {
-            return Center(
-              child: Column(
-                children: [
-                  Text(viewModel.errormessage ??""),
-                  ElevatedButton(
-                      onPressed: () {
-                        viewModel.getSources(widget.category.id??"");
-                      },
-                      child: Text('Try again'))
-                ],
-              ),
+            return Column(
+              children: [
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Something Went Wrong !'),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {
+                            viewModel.getSources(widget.category.id??"");
+                          },
+                          child: Text('Try again')),
+                    ],
+                  ),
+                )
+              ],
             );
           }
           var SourcesList = viewModel.newSourceList;
